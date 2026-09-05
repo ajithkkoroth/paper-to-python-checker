@@ -103,7 +103,7 @@ st.markdown("""
 
 st.title("📝 Flowchart & Pseudocode Evaluator")
 st.markdown('<div class="course-badge">Course: Algorithmic Thinking with Python (UCEST105)</div>', unsafe_allow_html=True)
-st.write("Snap or upload a photo of your handwritten flowchart or pseudocode to grade your submission against the rubric and view the reference implementation.")
+st.write("Snap or upload a photo of your handwritten flowchart or pseudocode to grade your submission against the rubric and view the Python implementation.")
 
 # Exercise mapping from URL query parameters
 # exercise_id = st.query_params.get("ex", "general_exercise")
