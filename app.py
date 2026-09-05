@@ -101,7 +101,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-st.title("📝 Paper-to-Python Evaluator")
+st.title("📝 Flowchart & Pseudocode Evaluator")
 st.markdown('<div class="course-badge">Course: Algorithmic Thinking with Python (UCEST105)</div>', unsafe_allow_html=True)
 st.write("Snap or upload a photo of your handwritten flowchart or pseudocode to grade your submission against the rubric and view the reference implementation.")
 
