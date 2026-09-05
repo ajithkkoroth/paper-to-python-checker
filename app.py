@@ -106,8 +106,8 @@ st.markdown('<div class="course-badge">Course: Algorithmic Thinking with Python 
 st.write("Snap or upload a photo of your handwritten flowchart or pseudocode to grade your submission against the rubric and view the reference implementation.")
 
 # Exercise mapping from URL query parameters
-exercise_id = st.query_params.get("ex", "general_exercise")
-st.info(f"📌 Active Exercise Context: **{exercise_id.upper()}**")
+# exercise_id = st.query_params.get("ex", "general_exercise")
+# st.info(f"📌 Active Exercise Context: **{exercise_id.upper()}**")
 
 # Simple image file uploader
 uploaded_file = st.file_uploader("Upload or snap a photo of your work", type=["jpg", "jpeg", "png"])
