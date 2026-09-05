@@ -97,7 +97,7 @@ st.markdown("""
 st.markdown("""
 <div class="header-card">
     <h3>Government College of Engineering Kannur</h3>
-    <p>Dept. of Electronics and Communication Engineering &nbsp;|&nbsp; Dr. Ajith K K</p>
+    <p>;Dr. Ajith K K|&nbsp;Dept. of Electronics and Communication Engineering &nbsp</p>
 </div>
 """, unsafe_allow_html=True)
 
