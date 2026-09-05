@@ -146,7 +146,7 @@ if uploaded_file is not None:
                     ## 💡 Detailed Critique & Feedback
                     - Provide 2-3 concise bullet points highlighting structural strengths or specific logic flaws found exclusively in the student's handwritten work.
 
-                    ## 🐍 Generated Python Code (Reference Implementation)
+                    ## 🐍 Generated Python Code
                     - Provide clean, idiomatic Python code corresponding to the exercise requirement.
                     """
                     
