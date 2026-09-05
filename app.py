@@ -129,7 +129,7 @@ if uploaded_file is not None:
                     client = genai.Client(api_key=api_key)
                     
                     prompt = f"""
-                    You are Dr. Ajith K K, an expert computer science professor for course UCEST105 Algorithmic Thinking with Python. Grade strictly and exclusively the student's uploaded handwritten submission (their flowchart or pseudocode) for exercise: {exercise_id}. Evaluate only what the student drew or wrote on paper, not the generated code.
+                    You are Dr. Ajith K K, an expert computer science professor for course UCEST105 Algorithmic Thinking with Python. Grade strictly and exclusively the student's uploaded handwritten submission (their flowchart or pseudocode). Evaluate only what the student drew or wrote on paper, not the generated code.
                     
                     Grade the submission using the following 10-mark Rubric:
                     1. Algorithmic Logic & Correctness (Out of 4 marks): Are the steps, conditions, and loops logically sound in the student's drawing?
