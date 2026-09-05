@@ -6,20 +6,33 @@ from google import genai
 st.set_page_config(page_title="Paper-to-Python Evaluator", page_icon="📝", layout="centered")
 
 st.title("📝 Paper-to-Python Evaluator")
-st.write("Snap a photo of your handwritten flowchart or pseudocode to check its logic and convert it to Python.")
+st.write("Scan your handwritten flowchart or pseudocode to check its logic and convert it to Python.")
 
-# Exercise mapping or descriptions (You can customize based on your textbook chapters)
+# Exercise mapping from URL query parameters
 exercise_id = st.query_params.get("ex", "general_exercise")
 st.info(f"Active Exercise Context: **{exercise_id.upper()}**")
 
-# Image uploader (automatically triggers mobile camera on smartphones)
-uploaded_file = st.file_uploader("Upload or snap a photo of your work", type=["jpg", "jpeg", "png"])
+# Create tabs for Live Camera vs File Upload
+tab_camera, tab_upload = st.tabs(["📷 Take Photo with Camera", "📁 Upload Image File"])
 
-if uploaded_file is not None:
-    image = Image.open(uploaded_file)
-    st.image(image, caption="Your Hand-Drawn Work", use_container_width=True)
+image = None
+
+with tab_camera:
+    st.write("Position your paper worksheet in front of your phone camera:")
+    camera_file = st.camera_input("Take a picture")
+    if camera_file is not None:
+        image = Image.open(camera_file)
+
+with tab_upload:
+    uploaded_file = st.file_uploader("Choose an image file", type=["jpg", "jpeg", "png"])
+    if uploaded_file is not None:
+        image = Image.open(uploaded_file)
+
+# If an image is provided from either method
+if image is not None:
+    st.image(image, caption="Selected Work for Evaluation", use_container_width=True)
     
-# Securely retrieve API key from Streamlit Secrets
+    # Securely retrieve API key from Streamlit Secrets
     api_key = st.secrets.get("GEMINI_API_KEY")
     
     if not api_key:
@@ -28,7 +41,7 @@ if uploaded_file is not None:
         if st.button("Evaluate and Translate Logic", type="primary"):
             with st.spinner("Analyzing your handwriting and logic structure..."):
                 try:
-                    # Initialize the Google GenAI client explicitly with the key
+                    # Initialize the Google GenAI client
                     client = genai.Client(api_key=api_key)
                     
                     prompt = f"""
@@ -42,7 +55,7 @@ if uploaded_file is not None:
                     """
                     
                     response = client.models.generate_content(
-                        model='gemini-3.6-flash',
+                        model='gemini-2.5-flash',
                         contents=[image, prompt]
                     )
                     
