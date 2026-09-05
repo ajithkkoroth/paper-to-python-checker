@@ -19,16 +19,16 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption="Your Hand-Drawn Work", use_container_width=True)
     
-    # Securely retrieve API key from Streamlit Secrets
+# Securely retrieve API key from Streamlit Secrets
     api_key = st.secrets.get("GEMINI_API_KEY")
     
     if not api_key:
-        st.error("Gemini API Key is missing. Please configure it in your Streamlit secrets settings.")
+        st.error("⚠️ Gemini API Key is missing or not detected in Streamlit Secrets. Please check your app settings on share.streamlit.io.")
     else:
         if st.button("Evaluate and Translate Logic", type="primary"):
             with st.spinner("Analyzing your handwriting and logic structure..."):
                 try:
-                    # Initialize the Google GenAI client
+                    # Initialize the Google GenAI client explicitly with the key
                     client = genai.Client(api_key=api_key)
                     
                     prompt = f"""
@@ -41,7 +41,6 @@ if uploaded_file is not None:
                     Format your response clearly using markdown headings.
                     """
                     
-                    # Call Gemini 2.5 Flash for fast multimodal analysis
                     response = client.models.generate_content(
                         model='gemini-2.5-flash',
                         contents=[image, prompt]
