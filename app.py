@@ -7,7 +7,7 @@ st.set_page_config(page_title="Algorithmic Thinking with Python | GCE Kannur", p
 
 # Course Header & Branding
 st.subheader("Government College of Engineering Kannur")
-st.caption("Dept. of Electronics and Communication Engineering | Dr. Ajith K K")
+st.caption("Dr. Ajith K K | Dept. of Electronics and Communication Engineering")
 st.title("📝 Paper-to-Python Evaluator & Rubric")
 st.markdown("**Course:** Algorithmic Thinking with Python (`UCEST105`)")
 st.write("Snap a photo of your handwritten flowchart or pseudocode to grade your submission against the rubric and view the reference Python implementation.")
