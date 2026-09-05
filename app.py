@@ -17,7 +17,7 @@ uploaded_file = st.file_uploader("Upload or snap a photo of your work", type=["j
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
-    st.image(image, caption="Your Hand-Drawn Work", use_column_width=True)
+    st.image(image, caption="Your Hand-Drawn Work", use_container_width=True)
     
     # Securely retrieve API key from Streamlit Secrets
     api_key = st.secrets.get("GEMINI_API_KEY")
