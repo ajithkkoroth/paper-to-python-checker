@@ -5,16 +5,109 @@ from google import genai
 # Page configuration for mobile devices
 st.set_page_config(page_title="Algorithmic Thinking with Python | GCE Kannur", page_icon="📝", layout="centered")
 
-# Course Header & Branding
-st.subheader("Government College of Engineering Kannur")
-st.caption("Dr. Ajith K K | Dept. of Electronics and Communication Engineering")
-st.title("📝 Paper-to-Python Evaluator & Rubric")
-st.markdown("**Course:** Algorithmic Thinking with Python (`UCEST105`)")
-st.write("Snap a photo of your handwritten flowchart or pseudocode to grade your submission against the rubric and view the reference Python implementation.")
+# Custom Professional CSS Styling
+st.markdown("""
+<style>
+    /* Import Google Font */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    html, body, [class*="css"] {
+        font-family: 'Inter', sans-serif;
+    }
+
+    /* Main Container Styling */
+    .block-container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        max-width: 700px;
+    }
+
+    /* Header Banner Styling */
+    .header-card {
+        background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        padding: 1.5rem;
+        border-radius: 12px;
+        color: white;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-card h3 {
+        color: #ffffff !important;
+        margin-bottom: 0.2rem;
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+
+    .header-card p {
+        color: #e2e8f0;
+        font-size: 0.9rem;
+        margin-bottom: 0;
+    }
+
+    /* App Title Styling */
+    h1 {
+        color: #0f172a;
+        font-weight: 700;
+        font-size: 1.8rem !important;
+        margin-top: 1rem;
+    }
+
+    /* Subtext & Meta */
+    .course-badge {
+        background-color: #f1f5f9;
+        color: #334155;
+        padding: 0.4rem 0.8rem;
+        border-radius: 6px;
+        font-weight: 500;
+        font-size: 0.85rem;
+        display: inline-block;
+        margin-bottom: 1rem;
+        border: 1px solid #e2e8f0;
+    }
+
+    /* Buttons */
+    .stButton > button {
+        width: 100%;
+        border-radius: 8px;
+        font-weight: 600;
+        background-color: #2563eb;
+        color: white;
+        padding: 0.6rem;
+        border: none;
+        transition: all 0.2s ease-in-out;
+    }
+    
+    .stButton > button:hover {
+        background-color: #1d4ed8;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    }
+
+    /* File Uploader styling box */
+    [data-testid="stFileUploader"] {
+        border: 2px dashed #cbd5e1;
+        border-radius: 10px;
+        padding: 1rem;
+        background-color: #f8fafc;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+# Course Header & Branding Card
+st.markdown("""
+<div class="header-card">
+    <h3>Government College of Engineering Kannur</h3>
+    <p>Dept. of Electronics and Communication Engineering &nbsp;|&nbsp; Dr. Ajith K K</p>
+</div>
+""", unsafe_allow_html=True)
+
+st.title("📝 Paper-to-Python Evaluator")
+st.markdown('<div class="course-badge">Course: Algorithmic Thinking with Python (UCEST105)</div>', unsafe_allow_html=True)
+st.write("Snap or upload a photo of your handwritten flowchart or pseudocode to grade your submission against the rubric and view the reference implementation.")
 
 # Exercise mapping from URL query parameters
 exercise_id = st.query_params.get("ex", "general_exercise")
-st.info(f"Active Exercise Context: **{exercise_id.upper()}**")
+st.info(f"📌 Active Exercise Context: **{exercise_id.upper()}**")
 
 # Simple image file uploader
 uploaded_file = st.file_uploader("Upload or snap a photo of your work", type=["jpg", "jpeg", "png"])
